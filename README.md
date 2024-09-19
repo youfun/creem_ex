@@ -1,6 +1,8 @@
 # CreemEx
 
-**TODO: Add description**
+**Project description:**
+
+CreemEx is an Elixir library for interacting with the Creem API, which provides payment processing services. It allows you to create checkout sessions, manage payments, and handle various payment-related tasks.
 
 ## Installation
 
