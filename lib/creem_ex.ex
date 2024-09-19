@@ -7,10 +7,9 @@ defmodule CreemEx do
   @doc """
   Configures the CreemEx client with API key, default return URL, and environment.
   """
-  def configure(api_key, return_url, env \\ :test) do
+  def configure(api_key, return_url) do
     Application.put_env(:creem_ex, :api_key, api_key)
     Application.put_env(:creem_ex, :return_url, return_url)
-    Application.put_env(:creem_ex, :environment, env)
   end
 
   defp get_config(key) do
@@ -19,11 +18,11 @@ defmodule CreemEx do
   end
 
   defp get_base_url do
-    case get_config(:environment) do
+    case Mix.env() do
       :prod -> "https://api.creem.io/v1"
       _ -> "https://test-api.creem.io/v1"
     end
-  end
+end
 
   @doc """
   Creates a checkout session for a given product.
